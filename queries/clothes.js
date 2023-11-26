@@ -2,7 +2,7 @@ const db = require("../db/dbConfig.js")
 
 const getClothes = async () => {
     try {
-        const result = await db.any('SELECT * FROM clothes')
+        const result = await db.any("SELECT * FROM clothes")
         return result
     } catch (error){
         return error
@@ -10,7 +10,7 @@ const getClothes = async () => {
 }
 const getSingleClothing = async () => {
     try {
-        const result = await db.one('SELECT * FROM clothes WHERE id=$1', id)
+        const result = await db.one('SELECT * FROM clothes WHERE id=$1 RETURNING *', id)
         return result
     } catch (error){
         return error

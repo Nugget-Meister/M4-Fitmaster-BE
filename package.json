@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "init": "psql -U postgres -f db/schema.sql",
+    "schema": "psql -U postgres -f db/schema.sql",
     "seed": "psql -U postgres -f db/seed.sql"
   },
   "author": "",

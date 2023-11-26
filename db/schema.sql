@@ -1,6 +1,8 @@
+DROP DATABASE IF EXISTS clothes_dev;
+
 CREATE DATABASE clothes_dev;
 
-DROP TABLE IF EXISTS clothes;
+\c clothes_dev
 
 CREATE TABLE clothes (
     id SERIAL PRIMARY KEY,

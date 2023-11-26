@@ -1,3 +1,5 @@
+\c clothes_dev
+
 INSERT INTO clothes (
     name,
     category, 
@@ -24,6 +26,4 @@ VALUES (
         'denim',
         TRUE,
         'https://m.media-amazon.com/images/I/918vV4ZqEIL._AC_SY550_.jpg'
-    ),
-    ()
-    ;
+    );
