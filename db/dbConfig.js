@@ -12,4 +12,4 @@ const connect = {
 
 const db = pg(connect)
 
-// module.exports = db
+module.exports = db
