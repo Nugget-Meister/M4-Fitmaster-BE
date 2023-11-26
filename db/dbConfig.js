@@ -1,4 +1,4 @@
-const pg  = require("pg-promise")
+const pg = require("pg-promise")();
 
 require('dotenv').config()
 
@@ -12,4 +12,4 @@ const connect = {
 
 const db = pg(connect)
 
-module.exports = db
+// module.exports = db
