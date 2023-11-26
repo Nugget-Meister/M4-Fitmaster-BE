@@ -10,7 +10,7 @@ const getClothes = async () => {
 }
 const getSingleClothing = async (id) => {
     try {
-        const result = await db.one('SELECT * FROM clothes WHERE id=$1 RETURNING *', id)
+        const result = await db.one("SELECT * FROM clothes WHERE id=$1", id)
         return result
     } catch (error){
         return error
@@ -18,10 +18,10 @@ const getSingleClothing = async (id) => {
 }
 const createClothing = async (input) => {
     try {
-        const result = await db.one('INSERT INTO clothes (name, category, heat, cold, maerial, iscomfortable, imageurl) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [
+        const result = await db.one('INSERT INTO clothes (name, category, heat, cold, material, iscomfortable, imageurl) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [
             input.name,
             input.category,
-            imput.heat,
+            input.heat,
             input.cold,
             input.material,
             input.iscomfortable,

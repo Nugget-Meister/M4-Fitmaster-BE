@@ -32,11 +32,8 @@ clothes.get('/', async (req, res) => {
 
 clothes.get('/:id', async (req, res) => {
     const {id} = req.params;
-    console.log(`GET request received for 'clothes' with id(${id})`);
-    // process.stdout.write("bing bong")
+    process.stdout.write(`GET request received for 'clothes' with id(${id})... `);
     const result = await getSingleClothing(id);
-    console.log(result)
-
     if(result.id){
         console.log(`Dispensing ${result.name}`)
         res.status(200).json({
@@ -53,7 +50,22 @@ clothes.get('/:id', async (req, res) => {
 })
 
 clothes.post('/', async (req, res) => {
-    console.log(`POST request received to 'clothes'`)
+    process.stdout.write(`POST request received to 'clothes...'`);
+    console.log(req.body)
+    const result = await createClothing(req.body);
+    console.log(result)
+    if(result.id){
+        res.status(200).json({
+            message: "Successfully added data.",
+            data: result
+        })
+    } else {
+        res.status(500).json({
+            message: "Unable to add data to table",
+            data: null
+        })
+    }
+
 })
 
 clothes.put('/:id', async (req, res) => {
