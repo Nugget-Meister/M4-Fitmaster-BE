@@ -8,7 +8,7 @@ const getClothes = async () => {
         return error
     }
 }
-const getSingleClothing = async () => {
+const getSingleClothing = async (id) => {
     try {
         const result = await db.one('SELECT * FROM clothes WHERE id=$1 RETURNING *', id)
         return result

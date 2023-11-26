@@ -23,7 +23,7 @@ clothes.get('/', async (req, res) => {
         })
     } else {
         console.log("500 - Unable to access SQL server. Please check if database is active and seeded.")
-        res.status(404).json({
+        res.status(500).json({
             message: "Unable to access server. Please ensure back-end is operational.",
             data: null
         })
@@ -31,22 +31,39 @@ clothes.get('/', async (req, res) => {
 })
 
 clothes.get('/:id', async (req, res) => {
-    const {id} = req.params
-    console.log(`GET `)
+    const {id} = req.params;
+    console.log(`GET request received for 'clothes' with id(${id})`);
+    // process.stdout.write("bing bong")
+    const result = await getSingleClothing(id);
+    console.log(result)
+
+    if(result.id){
+        console.log(`Dispensing ${result.name}`)
+        res.status(200).json({
+            message: "OK",
+            data: result
+        })
+    } else {
+        console.log(`ERROR - No item found at address ${id}`)
+        res.status(404).json({
+            message: "No item found at that address.",
+            data: null
+        })
+    }
 })
 
 clothes.post('/', async (req, res) => {
-    console.log("")
+    console.log(`POST request received to 'clothes'`)
 })
 
 clothes.put('/:id', async (req, res) => {
     const { id } = req.params
-    console.log("")
+    console.log(`PUT request received to 'clothes' with id(${id})`)
 })
 
 clothes.delete('/:id', async (req, res) => {
     const { id } = req.params
-    console.log("")
+    console.log(`DELETE request received to 'clothes' with id(${id})`)
 })
 
 module.exports = clothes
