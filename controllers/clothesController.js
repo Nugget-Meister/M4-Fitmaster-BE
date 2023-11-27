@@ -53,11 +53,13 @@ clothes.post('/', async (req, res) => {
     process.stdout.write(`POST request received to 'clothes...'`);
     const result = await createClothing(req.body);
     if(result.id){
+        console.log("Success!")
         res.status(200).json({
             message: "Successfully added data.",
             data: result
         })
     } else {
+        console.log("Failed!")
         res.status(500).json({
             message: "Unable to add data to table",
             data: null
