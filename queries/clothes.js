@@ -53,7 +53,7 @@ const updateClothing = async (id, input) => {
 }
 const deleteClothing = async (id) => {
     try {
-        const result = await db.one('DELETE FROM books WHERE id=$1 RETURNING *', id)
+        const result = await db.one('DELETE FROM clothes WHERE id=$1 RETURNING *', id)
         return result
     } catch (error){
         return error
