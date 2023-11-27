@@ -17,7 +17,10 @@ app.get("/", (req, res) => {
 })
 
 app.get("*", (req, res) => {
-    res.status(404).json({ status: "error", data: "No such route exists."})
+    res.status(404).json({ 
+        message: "No such route exists.",
+        data: null
+    })
 })
 
-module.exports = app;
+module.exports = app
