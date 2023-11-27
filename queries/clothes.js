@@ -33,17 +33,17 @@ const createClothing = async (input) => {
     }
 }
 
-const updateClothing = async (input) => {
+const updateClothing = async (id, input) => {
     try {
-        const result = await db.one('UPDATE clothing SET name=$1 category=$2 heat=$3 cold=$4 material=$5 iscomfortable=$6 imageurl=$7 WHERE id=$8 RETURNING *', [
+        const result = await db.one('UPDATE clothes SET name=$1, category=$2, heat=$3, cold=$4, material=$5, iscomfortable=$6, imageurl=$7 WHERE id=$8 RETURNING *', [
             input.name,
             input.category,
-            imput.heat,
+            input.heat,
             input.cold,
             input.material,
             input.iscomfortable,
             input.imageurl,
-            input.id
+            id
         ])
         return result
 

@@ -51,7 +51,6 @@ clothes.get('/:id', async (req, res) => {
 
 clothes.post('/', async (req, res) => {
     process.stdout.write(`POST request received to 'clothes...'`);
-    console.log(req.body)
     const result = await createClothing(req.body);
     console.log(result)
     if(result.id){
@@ -70,7 +69,22 @@ clothes.post('/', async (req, res) => {
 
 clothes.put('/:id', async (req, res) => {
     const { id } = req.params
-    console.log(`PUT request received to 'clothes' with id(${id})`)
+    console.log(`PUT request received to 'clothes' with id(${id})`);
+    const result = await updateClothing(id, req.body)
+    console.log(result)
+    if(result.id) {
+        res.status(200).json({
+            message: `Successfully changed data at id ${id}`,
+            data: result
+        })
+    } else {
+        res.status(404).json({
+            message: `Failed to change data at id ${id}`,
+            data: result
+        })
+    }
+
+
 })
 
 clothes.delete('/:id', async (req, res) => {
