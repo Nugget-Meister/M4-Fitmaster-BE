@@ -16,7 +16,7 @@ VALUES (
         3,
         'cotton',
         TRUE,
-        'www.google.com'
+        'https://i.ebayimg.com/images/g/ezoAAOSwPzpgqEwf/s-l1600.jpg'
     ),
     (
         'jeans',

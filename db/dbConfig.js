@@ -7,7 +7,7 @@ const connect = {
     port: process.env.PG_PORT,
     database: process.env.PG_DATABASE,
     user: process.env.PG_PASSWORD,
-    // password: process.env.PG_PASSWORD
+    password: process.env.PG_PASSWORD
 }
 
 const db = pg(connect)
